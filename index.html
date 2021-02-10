@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <title>Google</title>
 </head>
 
@@ -22,8 +23,8 @@
                     <a href="#" class="nav-img">Images</a>
                 </li>
                 <li class="nav-item" class="dropdown">
-                    <i class="fa fa-th" aria-hidden="true" class="dropbtn" onclick="myFunction(this);"></i>
-                    <div class="googleApp dropdown-content" id="myDropdown">
+                    <img src="./images/bars.png" alt="bars-apps" class="dropbtn" id="appbtn">
+                    <div class="googleApp dropdown-content" id="apps">
                         <div class="mainApp">
                             <a href="#" class="app">
                                 <img src="./images/account.png" alt="account" class="gg-icon">
@@ -97,7 +98,7 @@
                 </form>
                 <i class="fa fa-search" aria-hidden="true"></i>
                 <div class="voice-search">
-                    <i class="fa fa-microphone" aria-hidden="true"></i>
+                    <img src="./images/mic.png" alt="mic" class="fa-microphone">
                     <p class="voice-icon " id="voice-icon ">Search by voice</p>
                 </div>
                 </input>
@@ -143,18 +144,18 @@
                         <a href="https://policies.google.com/terms?hl=en-VN&fg=1 ">Terms</a>
                     </li>
                     <li class="footer-list-items ">
-                        <a href="#" id="setting" class="dropbtn" onclick="myFunction(this);">Settings</a>
+                        <a href="#" id="settingbtn" class="dropbtn">Settings</a>
+                        <div class="setting-box dropdown-content" id="setting">
+                            <ul class="setting-options">
+                                <li><a href="#">Search settings</a></li>
+                                <li><a href="#">Advanced search</a></li>
+                                <li><a href="#">Your data in Search</a></li>
+                                <li><a href="#">Search history</a></li>
+                                <li><a href="#">Search help</a></li>
+                                <li><a href="#">Send feedback</a></li>
+                            </ul>
+                        </div>
                     </li>
-                </ul>
-            </div>
-            <div class="setting-box dropdown-content" id="setting-box">
-                <ul class="setting-options">
-                    <li><a href="#">Search settings</a></li>
-                    <li><a href="#">Advanced search</a></li>
-                    <li><a href="#">Your data in Search</a></li>
-                    <li><a href="#">Search history</a></li>
-                    <li><a href="#">Search help</a></li>
-                    <li><a href="#">Send feedback</a></li>
                 </ul>
             </div>
         </div>
@@ -162,28 +163,10 @@
     </div>
     </div>
     <script>
-        /* When the user clicks on the button, 
-        closes every dropdowns and open the only one passed as argument */
-
-        /* Javascript only */
-        function myFunction(element) {
-            var dropdowns = document.getElementsByClassName("dropdown-content");
-
-            // element.nextSibling is the carriage return… The dropdown menu is the next next.
-            var thisDropdown = element.nextSibling.nextSibling;
-
-            if (!thisDropdown.classList.contains('show')) { // Added to hide dropdown if clicking on the one already open
-                var i;
-                for (i = 0; i < dropdowns.length; i++) {
-                    dropdowns[i].classList.remove('show');
-                }
-            }
-
-            // Toggle the dropdown on the element clicked
-            thisDropdown.classList.toggle("show");
+        let appbtn = document.getElementById("settingbtn");
+        appbtn.onclick = function() {
+            document.getElementById("setting").classList.toggle("show");
         }
-
-        /* W3Schools function to close the dropdown when clicked outside. */
         window.onclick = function(event) {
             if (!event.target.matches('.dropbtn')) {
                 var dropdowns = document.getElementsByClassName("dropdown-content");

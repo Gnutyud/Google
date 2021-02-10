@@ -56,8 +56,22 @@ body {
     color: gray;
 }
 
+.nav-item img {
+    width: 17px;
+    height: 17px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    opacity: 0.5;
+}
+
 .nav-item i:hover {
     color: black;
+}
+
+.nav-item img:hover {
+    opacity: 1;
 }
 
 .nav-item a:hover {
@@ -136,9 +150,9 @@ body {
     position: absolute;
     right: 15px;
     top: 24px;
-    font-size: 20px;
-    color: #4285f4;
     cursor: pointer;
+    width: 13px;
+    height: 20px;
 }
 
 .voice-icon {
@@ -235,6 +249,7 @@ body {
 .footer-list-items a {
     font-size: 14px;
     color: #70757a;
+    white-space: nowrap;
 }
 
 .footer-list-items a:hover,
@@ -313,4 +328,22 @@ body {
     grid-column-gap: 10px;
     grid-row-gap: 10px;
     justify-content: center;
+}
+
+@media only screen and (max-width: 800px) {
+    .footer-list {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column-reverse;
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    .search-bar {
+        position: relative;
+        width: 80%;
+        margin-top: 15px;
+        margin-bottom: 20px;
+    }
 }
